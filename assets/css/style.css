@@ -1,21 +1,26 @@
 .wrapper {
     background:rgb(141, 169, 231);
-    height:800px;
+    /* height:800px; */
 }
 
 .column {
-    background:rgb(178, 223, 182);
-    border:1px solid black;
+    /* background:rgb(178, 223, 182);
+    border:1px solid black; */
 }
 .row {
-    height:150px;
-    /* border:1px solid blue; */
+    /* height:100px;
+    border:1px solid blue; */
 }
 
-.card-title {
+/* .card-title {
     font-size:9pt;
-}
+} */
 
 .characterRow {
-    height:100px;
+    /* height:200px; */
+}
+
+.enemiesRow {
+    /* height:200px; */
+    
 }

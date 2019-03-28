@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javacsript/game.js"></script>
 </head>
 
@@ -18,9 +19,9 @@
             <div class="row">
                 <div class="col-md-8 column">
                     <!-- <div class="row"></div> -->
-                    <div class="row character">
-                        <div class="col-md-3">
-                            <div class="card mt-1">
+                    <div class="row characterRow">
+                        <div id="char1Col" class="col-md-3">
+                            <div id="char1" class="card mt-2 ml-2">
                                 <div class="card-header">
                                     Obi-wan Kenobi
                                 </div>
@@ -30,8 +31,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="card mt-1">
+                        <div id="char2" class="col-md-3">
+                            <div class="card mt-2 ml-1">
                                 <div class="card-header">
                                     Luke Skywalker
                                 </div>
@@ -41,8 +42,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="card mt-1">
+                        <div id="char3" class="col-md-3">
+                            <div class="card mt-2 ml-1">
                                 <div class="card-header">
                                     Darth Sidious
                                 </div>
@@ -52,8 +53,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="card mt-1">
+                        <div id="char4" class="col-md-3">
+                            <div class="card mt-2 ml-1">
                                 <div class="card-header">
                                    Darth Maul
                                 </div>
@@ -64,10 +65,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">Enemies Available To Attack</div>
-                    <div class="row">Fight Section</div>
-                    <div class="row">Attack</div>
-                    <div class="row">Defender</div>
+                    <div id="enemies" class="row ml-2 enemiesRow">
+                        
+                    </div>
+                    <div class="row ml-2">Fight Section</div>
+                    <div class="row ml-2">Attack</div>
+                    <div class="row ml-2">Defender</div>
 
                 </div>
                 <div class="col-md-4"></div>
