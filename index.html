@@ -18,64 +18,113 @@
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-8 column">
-                    <!-- <div class="row"></div> -->
-                    <div class="row characterRow">
-                        <div id="char1Col" class="col-md-3">
-                            <div id="char1" class="card mt-2 ml-2">
+                    <div style="margin-left:15px;" class="row">Your Character</div>
+                    <div id="characters" class="row">
+                       
+                        <div id="charCol1" class="col-md-3">
+                            <div id="char1" class="card">
                                 <div class="card-header">
                                     Obi-wan Kenobi
                                 </div>
                                 <div class="card-body text-center">
                                     <img class="card-image" src="assets/images/char1.png">
-                                    <div><span>HP:</span id="c1HP"><span>28</span></div>
+                                    <div><span>HP:</span><span id="c1HP">18</span></div>
                                 </div>
                             </div>
                         </div>
-                        <div id="char2" class="col-md-3">
-                            <div class="card mt-2 ml-1">
+                        <div id="charCol2" class="col-md-3">
+                            <div id="char2" class="card">
                                 <div class="card-header">
                                     Luke Skywalker
                                 </div>
                                 <div class="card-body text-center">
                                     <img class="card-image" src="assets/images/char2.png">
-                                    <div><span>HP:</span id="c1HP"><span>28</span></div>
+                                    <div><span>HP:</span><span id="c2HP">28</span></div>
                                 </div>
                             </div>
                         </div>
-                        <div id="char3" class="col-md-3">
-                            <div class="card mt-2 ml-1">
+                        <div id="charCol3" class="col-md-3">
+                            <div id="char3" class="card">
                                 <div class="card-header">
                                     Darth Sidious
                                 </div>
                                 <div class="card-body text-center">
                                     <img class="card-image" src="assets/images/char3.png">
-                                    <div><span>HP:</span id="c1HP"><span>28</span></div>
+                                    <div><span>HP:</span><span id="c3HP">28</span></div>
                                 </div>
                             </div>
                         </div>
-                        <div id="char4" class="col-md-3">
-                            <div class="card mt-2 ml-1">
+                        <div id="charCol4" class="col-md-3">
+                            <div id="char4" class="card">
                                 <div class="card-header">
-                                   Darth Maul
+                                    Darth Maul
                                 </div>
                                 <div class="card-body text-center">
                                     <img class="card-image" src="assets/images/char4.png">
-                                    <div><span>HP:</span id="c1HP"><span>28</span></div>
+                                    <div><span>HP:</span><span id="c4HP">28</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="enemies" class="row ml-2 enemiesRow">
-                        
+                    <div style="margin-left: 15px" class="row">Enemies:</div>
+                    <div id="enemies" class="row enemiesRow">
+                        <div id="enemyCol1" class="col-md-3">
+                            <div id="enemy1" class="card mt-2 ml-2">
+                                <div class="card-header">
+                                    Obi-wan Kenobi
+                                </div>
+                                <div class="card-body text-center">
+                                    <img class="card-image" src="assets/images/char1.png">
+                                    <div><span>HP:</span><span id="e1HP">28</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="enemyCol2" class="col-md-3">
+                            <div id="enemy2" class="card mt-2 ml-1">
+                                <div class="card-header">
+                                    Luke Skywalker
+                                </div>
+                                <div class="card-body text-center">
+                                    <img class="card-image" src="assets/images/char2.png">
+                                    <div><span>HP:</span><span id="e2HP">28</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="enemyCol3" class="col-md-3">
+                            <div id="enemy3" class="card mt-2 ml-1">
+                                <div class="card-header">
+                                    Darth Sidious
+                                </div>
+                                <div class="card-body text-center">
+                                    <img class="card-image" src="assets/images/char3.png">
+                                    <div><span>HP:</span><span id="e3HP">28</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="enemyCol4" class="col-md-3">
+                            <div id="enemy4" class="card mt-2 ml-1">
+                                <div class="card-header">
+                                    Darth Maul
+                                </div>
+                                <div class="card-body text-center">
+                                    <img class="card-image" src="assets/images/char4.png">
+                                    <div><span>HP:</span><span id="e4HP">28</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row ml-2">Fight Section</div>
-                    <div class="row ml-2">Attack</div>
-                    <div class="row ml-2">Defender</div>
+                    <div class="row ml-2"><button>Attack</button></div>
+                    <div id="defender" class="row ml-2">Defender</div>
 
                 </div>
+
+
+
                 <div class="col-md-4"></div>
             </div>
         </div>
+
     </div>
 </body>
 

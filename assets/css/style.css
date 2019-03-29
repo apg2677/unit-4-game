@@ -1,20 +1,17 @@
+
+
+body {
+    /* font-size:9pt; */
+}
+
 .wrapper {
     background:rgb(141, 169, 231);
     /* height:800px; */
 }
 
-.column {
-    /* background:rgb(178, 223, 182);
-    border:1px solid black; */
+.card-header {
+   font-size: 9pt;
 }
-.row {
-    /* height:100px;
-    border:1px solid blue; */
-}
-
-/* .card-title {
-    font-size:9pt;
-} */
 
 .characterRow {
     /* height:200px; */
@@ -23,4 +20,19 @@
 .enemiesRow {
     /* height:200px; */
     
+}
+
+#enemyCol1 {
+    display:none;
+    
+}
+#enemyCol2 {
+    display:none;
+    margin-left:-15px;
+}
+#enemyCol3 {
+    display:none;
+}
+#enemyCol4 {
+    display:none;
 }
