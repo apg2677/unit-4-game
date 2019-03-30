@@ -1,29 +1,33 @@
 var UserCharacter = {
     name:"",
     HP:0,
-    AttackPower:0
-
+    AttackPower:0,
+    selected:false
 };
 
 var Luke = {
     name:"Luke",
     HP:28,
-    AttackPower:6
+    AttackPower:6,
+    selected:false
 };
 var Obi = {
     name:"Obi-wan",
     HP:26,
-    AttackPower:8
+    AttackPower:8,
+    selected:false
 };
 var DarthSidious = {
     name:"Darth Sidious",
     HP:18,
-    AttackPower:16
+    AttackPower:16,
+    selected:false
 };
 var DarthMaul= {
     name:"Darth Maul",
     HP:2,
-    AttackPower:60
+    AttackPower:60,
+    selected:false
 };
 
 
@@ -59,21 +63,19 @@ function InitClickHandler() {
     if (CharacterSelected==true && EnemySelected==true) {
         AppendChar("#fight");
         
-        console.log("Character: " + CharacterSelected );
-        console.log("EnemySelected: " + EnemySelected);
+       
     }
     else if (CharacterSelected==true) {
        AppendChar("#defender");
-       console.log("Character: " + CharacterSelected );
-       console.log("EnemySelected: " + EnemySelected);
+       
        EnemySelected=true;
+    
     }
     else {
         AppendChar("#enemies");
-        console.log("Character: " + CharacterSelected );
-        console.log("EnemySelected: " + EnemySelected);
-        CharacterSelected=true;
         
+        CharacterSelected=true;
+       
        
     }
    
@@ -81,23 +83,42 @@ function InitClickHandler() {
 }
 
 
+function DiplayStats() {
+    console.log("Character: " + CharacterSelected);
+    console.log("EnemySelected: " + EnemySelected);
+    console.log("User Character: " + UserCharacter.name);
+    console.log("HP: " + UserCharacter.HP);
+    console.log("Attack Power: " + UserCharacter.AttackPower);
+    
+}
+
 function AppendChar(sec) {
    
     $("#charCol1").on("click", function () {
         $(this).appendTo(sec);
         InitClickHandler();
+        UserCharacter = Obi;
+        DiplayStats();
+    
     });
     $("#charCol2").on("click", function () {
         $(this).appendTo(sec);
         InitClickHandler();
+        UserCharacter = Luke;
+        DiplayStats();
     });
     $("#charCol3").on("click", function () {
         $(this).appendTo(sec);
         InitClickHandler();
+        UserCharacter = DarthSidious;
+        DiplayStats();
+
     });
     $("#charCol4").on("click", function () {
         $(this).appendTo(sec);
         InitClickHandler();
+        UserCharacter = DarthMaul;
+        DiplayStats();
     });
 }
 // BAKUP CODE
