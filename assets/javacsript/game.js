@@ -1,9 +1,38 @@
+var UserCharacter = {
+    name:"",
+    HP:0,
+    AttackPower:0
+
+};
+
+var Luke = {
+    name:"Luke",
+    HP:28,
+    AttackPower:6
+};
+var Obi = {
+    name:"Obi-wan",
+    HP:26,
+    AttackPower:8
+};
+var DarthSidious = {
+    name:"Darth Sidious",
+    HP:18,
+    AttackPower:16
+};
+var DarthMaul= {
+    name:"Darth Maul",
+    HP:2,
+    AttackPower:60
+};
+
+
 var CharacterSelected = false;
 var EnemySelected = false;
 $(document).ready(function () {
-
+   
     InitVariables();
-    InitClickrHandler();
+    InitClickHandler();
 
     function InitVariables() {
         var char1 = $("#char1");
@@ -26,7 +55,7 @@ $(document).ready(function () {
 
 
 
-function InitClickrHandler() {
+function InitClickHandler() {
     if (CharacterSelected==true && EnemySelected==true) {
         AppendChar("#fight");
         
@@ -44,6 +73,7 @@ function InitClickrHandler() {
         console.log("Character: " + CharacterSelected );
         console.log("EnemySelected: " + EnemySelected);
         CharacterSelected=true;
+        
        
     }
    
@@ -52,21 +82,22 @@ function InitClickrHandler() {
 
 
 function AppendChar(sec) {
+   
     $("#charCol1").on("click", function () {
         $(this).appendTo(sec);
-        InitClickrHandler();
+        InitClickHandler();
     });
     $("#charCol2").on("click", function () {
         $(this).appendTo(sec);
-        InitClickrHandler();
+        InitClickHandler();
     });
     $("#charCol3").on("click", function () {
         $(this).appendTo(sec);
-        InitClickrHandler();
+        InitClickHandler();
     });
     $("#charCol4").on("click", function () {
         $(this).appendTo(sec);
-        InitClickrHandler();
+        InitClickHandler();
     });
 }
 // BAKUP CODE
