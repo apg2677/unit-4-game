@@ -98,6 +98,9 @@ function AppendChar(sec) {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = Obi;
+        if(UserCharacter.selected==true) {
+            DisableClick("#charCol1")
+        }
         DiplayStats();
     
     });
@@ -105,12 +108,18 @@ function AppendChar(sec) {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = Luke;
+        if(UserCharacter.selected==true) {
+            DisableClick("#charCol2")
+        }
         DiplayStats();
     });
     $("#charCol3").on("click", function () {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = DarthSidious;
+        if(UserCharacter.selected==true) {
+            DisableClick("#charCol3")
+        }
         DiplayStats();
 
     });
@@ -118,65 +127,28 @@ function AppendChar(sec) {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = DarthMaul;
+        if(UserCharacter.selected==true) {
+            DisableClick("#charCol4")
+        }
         DiplayStats();
     });
 }
-// BAKUP CODE
-// function InitCharHandler(HideRow, DisplayRow) {
-//     $("#charCol1").on("click", function () {
-//         HideRow("#charCol", 1);
-//         DisplayRow("#enemyCol", 1);
-//     });
-//     $("#charCol2").on("click", function () {
-//         HideRow("#charCol", 2);
-//         DisplayRow("#enemyCol", 2);
-//     });
-//     $("#charCol3").on("click", function () {
-//         HideRow("#charCol", 3);
-//         DisplayRow("#enemyCol", 3);
-//     });
-//     $("#charCol4").on("click", function () {
-//         HideRow("#charCol", 4);
-//         DisplayRow("#enemyCol", 4);
-//     });
-// }
+
+function DisableClick(charPicked) {
+    var tempCharPicked = charPicked;
+    if(tempCharPicked == "#charCol1") {
+        $("#charCol1").off("click");
+    }
+    if(tempCharPicked == "#charCol2") {
+        $("#charCol2").off("click");
+    }
+    if(tempCharPicked == "#charCol3") {
+        $("#charCol3").off("click");
+    }
+    if(tempCharPicked == "#charCol4") {
+        $("#charCol4").off("click");
+    }
+
+}
 
 
-// function DisplayRow(row, x) {
-//     for (var i = 1; i < 5; i++) {
-//         if (i == x) {
-//             continue;
-//         }
-//         var strTempE = row;
-//         strTempE += i;
-//         $(strTempE).show();
-//     }
-// };
-
-
-// function HideRow(row, x) {
-//     for (var i = 1; i < 5; i++) {
-//         if (i == x) {
-//             continue;
-//         }
-//         var strTempE = row;
-//         strTempE += i;
-//         $(strTempE).css("display", "none");
-//     }
-// };
-
-// function InitEnemyHandler() {
-//     $("#enemyCol1").on("click", function () {
-//         $(this).appendTo("#defender");
-//     });
-//     $("#enemyCol2").on("click", function () {
-//         $(this).appendTo("#defender");
-
-//     });
-//     $("#enemyCol3").on("click", function () {
-//         $(this).appendTo("#defender");
-//     });
-//     $("#enemyCol4").on("click", function () {
-//         $(this).appendTo("#defender");
-//     });
-// };
