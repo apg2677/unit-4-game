@@ -61,21 +61,22 @@ $(document).ready(function () {
 
 function InitClickHandler() {
     if (CharacterSelected==true && EnemySelected==true) {
-        AppendChar("#fight");
+        AppendChar("#defender");
         
        
     }
     else if (CharacterSelected==true) {
-       AppendChar("#defender");
+       AppendChar("#enemies");
        
        EnemySelected=true;
     
     }
     else {
-        AppendChar("#enemies");
+        AppendChar("#userCharacter");
         
         CharacterSelected=true;
-       
+        var enemies = $("#characters");
+        enemies.appendTo("#enemies");
        
     }
    

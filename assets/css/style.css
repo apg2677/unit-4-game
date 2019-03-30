@@ -1,27 +1,7 @@
 
-
 body {
-    /* font-size:9pt; */
+    background: #ccc;
 }
-
-.wrapper {
-    background:rgb(141, 169, 231);
-    /* height:800px; */
-}
-
-.card-header {
-   font-size: 9pt;
-}
-
-.characterRow {
-    /* height:200px; */
-}
-
-.enemiesRow {
-    /* height:200px; */
-    
-}
-
 #enemyCol1 {
     display:none;
     
