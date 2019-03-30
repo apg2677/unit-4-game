@@ -3,34 +3,7 @@ var EnemySelected = false;
 $(document).ready(function () {
 
     InitVariables();
-
-    // InitCharHandler(HideRow, DisplayRow);
-
-    // InitEnemyHandler();
     InitClickrHandler();
-
-    function DisplayRow(row, x) {
-        for (var i = 1; i < 5; i++) {
-            if (i == x) {
-                continue;
-            }
-            var strTempE = row;
-            strTempE += i;
-            $(strTempE).show();
-        }
-    };
-
-
-    function HideRow(row, x) {
-        for (var i = 1; i < 5; i++) {
-            if (i == x) {
-                continue;
-            }
-            var strTempE = row;
-            strTempE += i;
-            $(strTempE).css("display", "none");
-        }
-    };
 
     function InitVariables() {
         var char1 = $("#char1");
@@ -51,57 +24,34 @@ $(document).ready(function () {
     };
 });
 
-function InitEnemyHandler() {
-    $("#enemyCol1").on("click", function () {
-        $(this).appendTo("#defender");
-    });
-    $("#enemyCol2").on("click", function () {
-        $(this).appendTo("#defender");
 
-    });
-    $("#enemyCol3").on("click", function () {
-        $(this).appendTo("#defender");
-    });
-    $("#enemyCol4").on("click", function () {
-        $(this).appendTo("#defender");
-    });
-};
 
-function InitClickrHandler(row) {
+function InitClickrHandler() {
     if (CharacterSelected==true && EnemySelected==true) {
-        $("#charCol1").on("click", function () {
-            $(this).appendTo("#fight");
-           
-        });
-        $("#charCol2").on("click", function () {
-            $(this).appendTo("#fight");
-           
-
-        });
-        $("#charCol3").on("click", function () {
-            $(this).appendTo("#fight");
-          
-        });
-        $("#charCol4").on("click", function () {
-            $(this).appendTo("#fight");
-           
-        });
+        AppendChar();
     }
-    else if (EnemySelected) {
+    else if (CharacterSelected) {
         $("#charCol1").on("click", function () {
             $(this).appendTo("#defender");
-           
+            EnemySelected = true;
+            InitClickrHandler();
         });
         $("#charCol2").on("click", function () {
             $(this).appendTo("#defender");
+            EnemySelected = true;
+            InitClickrHandler();
             
         });
         $("#charCol3").on("click", function () {
-            $(this).appendTo("#defender");
+            $(this).appendTo("#enemies");
+            EnemySelected = true;
+            InitClickrHandler();
           
         });
         $("#charCol4").on("click", function () {
-            $(this).appendTo("#defender");
+            $(this).appendTo("#enemies");
+            EnemySelected = true;
+            InitClickrHandler();
            
         });
        
@@ -111,22 +61,22 @@ function InitClickrHandler(row) {
         $("#charCol1").on("click", function () {
             $(this).appendTo("#enemies");
             CharacterSelected = true;
-            console.log(CharacterSelected);
+            InitClickrHandler();
         });
         $("#charCol2").on("click", function () {
             $(this).appendTo("#enemies");
             CharacterSelected = true;
-            console.log(CharacterSelected);
+            InitClickrHandler();
         });
         $("#charCol3").on("click", function () {
             $(this).appendTo("#enemies");
             CharacterSelected = true;
-            console.log(CharacterSelected);
+            InitClickrHandler();
         });
         $("#charCol4").on("click", function () {
             $(this).appendTo("#enemies");
             CharacterSelected = true;
-            console.log(CharacterSelected);
+            InitClickrHandler();
         });
        
        
@@ -135,6 +85,25 @@ function InitClickrHandler(row) {
 
 }
 
+
+function AppendChar() {
+    $("#charCol1").on("click", function () {
+        $(this).appendTo("#fight");
+        InitClickrHandler();
+    });
+    $("#charCol2").on("click", function () {
+        $(this).appendTo("#fight");
+        InitClickrHandler();
+    });
+    $("#charCol3").on("click", function () {
+        $(this).appendTo("#fight");
+        InitClickrHandler();
+    });
+    $("#charCol4").on("click", function () {
+        $(this).appendTo("#fight");
+        InitClickrHandler();
+    });
+}
 // BAKUP CODE
 // function InitCharHandler(HideRow, DisplayRow) {
 //     $("#charCol1").on("click", function () {
@@ -154,3 +123,43 @@ function InitClickrHandler(row) {
 //         DisplayRow("#enemyCol", 4);
 //     });
 // }
+
+
+// function DisplayRow(row, x) {
+//     for (var i = 1; i < 5; i++) {
+//         if (i == x) {
+//             continue;
+//         }
+//         var strTempE = row;
+//         strTempE += i;
+//         $(strTempE).show();
+//     }
+// };
+
+
+// function HideRow(row, x) {
+//     for (var i = 1; i < 5; i++) {
+//         if (i == x) {
+//             continue;
+//         }
+//         var strTempE = row;
+//         strTempE += i;
+//         $(strTempE).css("display", "none");
+//     }
+// };
+
+// function InitEnemyHandler() {
+//     $("#enemyCol1").on("click", function () {
+//         $(this).appendTo("#defender");
+//     });
+//     $("#enemyCol2").on("click", function () {
+//         $(this).appendTo("#defender");
+
+//     });
+//     $("#enemyCol3").on("click", function () {
+//         $(this).appendTo("#defender");
+//     });
+//     $("#enemyCol4").on("click", function () {
+//         $(this).appendTo("#defender");
+//     });
+// };
