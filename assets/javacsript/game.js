@@ -28,57 +28,22 @@ $(document).ready(function () {
 
 function InitClickrHandler() {
     if (CharacterSelected==true && EnemySelected==true) {
-        AppendChar();
+        AppendChar("#fight");
+        
+        console.log("Character: " + CharacterSelected );
+        console.log("EnemySelected: " + EnemySelected);
     }
-    else if (CharacterSelected) {
-        $("#charCol1").on("click", function () {
-            $(this).appendTo("#defender");
-            EnemySelected = true;
-            InitClickrHandler();
-        });
-        $("#charCol2").on("click", function () {
-            $(this).appendTo("#defender");
-            EnemySelected = true;
-            InitClickrHandler();
-            
-        });
-        $("#charCol3").on("click", function () {
-            $(this).appendTo("#enemies");
-            EnemySelected = true;
-            InitClickrHandler();
-          
-        });
-        $("#charCol4").on("click", function () {
-            $(this).appendTo("#enemies");
-            EnemySelected = true;
-            InitClickrHandler();
-           
-        });
-       
-       
+    else if (CharacterSelected==true) {
+       AppendChar("#defender");
+       console.log("Character: " + CharacterSelected );
+       console.log("EnemySelected: " + EnemySelected);
+       EnemySelected=true;
     }
     else {
-        $("#charCol1").on("click", function () {
-            $(this).appendTo("#enemies");
-            CharacterSelected = true;
-            InitClickrHandler();
-        });
-        $("#charCol2").on("click", function () {
-            $(this).appendTo("#enemies");
-            CharacterSelected = true;
-            InitClickrHandler();
-        });
-        $("#charCol3").on("click", function () {
-            $(this).appendTo("#enemies");
-            CharacterSelected = true;
-            InitClickrHandler();
-        });
-        $("#charCol4").on("click", function () {
-            $(this).appendTo("#enemies");
-            CharacterSelected = true;
-            InitClickrHandler();
-        });
-       
+        AppendChar("#enemies");
+        console.log("Character: " + CharacterSelected );
+        console.log("EnemySelected: " + EnemySelected);
+        CharacterSelected=true;
        
     }
    
@@ -86,21 +51,21 @@ function InitClickrHandler() {
 }
 
 
-function AppendChar() {
+function AppendChar(sec) {
     $("#charCol1").on("click", function () {
-        $(this).appendTo("#fight");
+        $(this).appendTo(sec);
         InitClickrHandler();
     });
     $("#charCol2").on("click", function () {
-        $(this).appendTo("#fight");
+        $(this).appendTo(sec);
         InitClickrHandler();
     });
     $("#charCol3").on("click", function () {
-        $(this).appendTo("#fight");
+        $(this).appendTo(sec);
         InitClickrHandler();
     });
     $("#charCol4").on("click", function () {
-        $(this).appendTo("#fight");
+        $(this).appendTo(sec);
         InitClickrHandler();
     });
 }
