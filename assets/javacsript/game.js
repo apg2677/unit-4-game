@@ -99,9 +99,7 @@ function AppendChar(sec) {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = Obi;
-        if(UserCharacter.selected==true) {
-            DisableClick("#charCol1")
-        }
+        CheckUserSelected("#charCol1");
         DiplayStats();
     
     });
@@ -109,45 +107,46 @@ function AppendChar(sec) {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = Luke;
-        if(UserCharacter.selected==true) {
-            DisableClick("#charCol2")
-        }
+        CheckUserSelected("#charCol2");
         DiplayStats();
     });
     $("#charCol3").on("click", function () {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = DarthSidious;
-        if(UserCharacter.selected==true) {
-            DisableClick("#charCol3")
-        }
+        CheckUserSelected("#charCol3");
         DiplayStats();
-
     });
     $("#charCol4").on("click", function () {
         $(this).appendTo(sec);
         InitClickHandler();
         UserCharacter = DarthMaul;
-        if(UserCharacter.selected==true) {
-            DisableClick("#charCol4")
-        }
+        CheckUserSelected("#charCol4");
         DiplayStats();
     });
+}
+
+function CheckUserSelected(charCol) {
+    if (UserCharacter.selected == false) {
+       
+        UserCharacter.selected = true;
+        DisableClick(charCol);
+    }
 }
 
 function DisableClick(charPicked) {
     var tempCharPicked = charPicked;
     if(tempCharPicked == "#charCol1") {
-        $("#charCol1").off("click");
+        $("#charCol1").unbind("click");
     }
     if(tempCharPicked == "#charCol2") {
-        $("#charCol2").off("click");
+        $("#charCol2").unbind("click");
     }
     if(tempCharPicked == "#charCol3") {
-        $("#charCol3").off("click");
+        $("#charCol3").unbind("click");
     }
     if(tempCharPicked == "#charCol4") {
-        $("#charCol4").off("click");
+        $("#charCol4").unbind("click");
     }
 
 }
