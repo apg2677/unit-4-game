@@ -1,11 +1,13 @@
+var CharacterSelected = false;
+var EnemySelected = false;
 $(document).ready(function () {
 
     InitVariables();
 
-    InitCharHandler(HideRow, DisplayRow);
+    // InitCharHandler(HideRow, DisplayRow);
 
-    InitEnemyHandler();
-
+    // InitEnemyHandler();
+    InitClickrHandler();
 
     function DisplayRow(row, x) {
         for (var i = 1; i < 5; i++) {
@@ -45,37 +47,110 @@ $(document).ready(function () {
         var enemyCol4 = $("#enemyCol4");
         var enemies = $("#enemies");
         var characters = $("#characters");
+      
     };
 });
-function InitCharHandler(HideRow, DisplayRow) {
-    $("#charCol1").on("click", function () {
-        HideRow("#charCol", 1);
-        DisplayRow("#enemyCol", 1);
-    });
-    $("#charCol2").on("click", function () {
-        HideRow("#charCol", 2);
-        DisplayRow("#enemyCol", 2);
-    });
-    $("#charCol3").on("click", function () {
-        HideRow("#charCol", 3);
-        DisplayRow("#enemyCol", 3);
-    });
-    $("#charCol4").on("click", function () {
-        HideRow("#charCol", 4);
-        DisplayRow("#enemyCol", 4);
-    });
-}
+
 function InitEnemyHandler() {
     $("#enemyCol1").on("click", function () {
-       $(this).appendTo("#defender");
+        $(this).appendTo("#defender");
     });
     $("#enemyCol2").on("click", function () {
-       
+        $(this).appendTo("#defender");
+
     });
     $("#enemyCol3").on("click", function () {
-     
+        $(this).appendTo("#defender");
     });
     $("#enemyCol4").on("click", function () {
-    
+        $(this).appendTo("#defender");
     });
+};
+
+function InitClickrHandler(row) {
+    if (CharacterSelected==true && EnemySelected==true) {
+        $("#charCol1").on("click", function () {
+            $(this).appendTo("#fight");
+           
+        });
+        $("#charCol2").on("click", function () {
+            $(this).appendTo("#fight");
+           
+
+        });
+        $("#charCol3").on("click", function () {
+            $(this).appendTo("#fight");
+          
+        });
+        $("#charCol4").on("click", function () {
+            $(this).appendTo("#fight");
+           
+        });
+    }
+    else if (EnemySelected) {
+        $("#charCol1").on("click", function () {
+            $(this).appendTo("#defender");
+           
+        });
+        $("#charCol2").on("click", function () {
+            $(this).appendTo("#defender");
+            
+        });
+        $("#charCol3").on("click", function () {
+            $(this).appendTo("#defender");
+          
+        });
+        $("#charCol4").on("click", function () {
+            $(this).appendTo("#defender");
+           
+        });
+       
+       
+    }
+    else {
+        $("#charCol1").on("click", function () {
+            $(this).appendTo("#enemies");
+            CharacterSelected = true;
+            console.log(CharacterSelected);
+        });
+        $("#charCol2").on("click", function () {
+            $(this).appendTo("#enemies");
+            CharacterSelected = true;
+            console.log(CharacterSelected);
+        });
+        $("#charCol3").on("click", function () {
+            $(this).appendTo("#enemies");
+            CharacterSelected = true;
+            console.log(CharacterSelected);
+        });
+        $("#charCol4").on("click", function () {
+            $(this).appendTo("#enemies");
+            CharacterSelected = true;
+            console.log(CharacterSelected);
+        });
+       
+       
+    }
+   
+
 }
+
+// BAKUP CODE
+// function InitCharHandler(HideRow, DisplayRow) {
+//     $("#charCol1").on("click", function () {
+//         HideRow("#charCol", 1);
+//         DisplayRow("#enemyCol", 1);
+//     });
+//     $("#charCol2").on("click", function () {
+//         HideRow("#charCol", 2);
+//         DisplayRow("#enemyCol", 2);
+//     });
+//     $("#charCol3").on("click", function () {
+//         HideRow("#charCol", 3);
+//         DisplayRow("#enemyCol", 3);
+//     });
+//     $("#charCol4").on("click", function () {
+//         HideRow("#charCol", 4);
+//         DisplayRow("#enemyCol", 4);
+//     });
+// }
