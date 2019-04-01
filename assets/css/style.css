@@ -16,3 +16,9 @@ body {
 #enemyCol4 {
     display:none;
 }
+* {
+    
+}
+.col-md-3 {
+    border:1px solid red;
+}

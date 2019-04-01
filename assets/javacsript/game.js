@@ -33,10 +33,11 @@ var DarthMaul= {
 
 var CharacterSelected = false;
 var EnemySelected = false;
+var first = true;
 $(document).ready(function () {
    
     InitVariables();
-    InitClickHandler();
+    // InitClickHandler("first");
 
     function InitVariables() {
         var char1 = $("#char1");
@@ -51,7 +52,7 @@ $(document).ready(function () {
         var enemyCol2 = $("#enemyCol2");
         var enemyCol3 = $("#enemyCol3");
         var enemyCol4 = $("#enemyCol4");
-        var enemies = $("#enemies");
+        var enemiesRow = $("#enemiesRow");
         var characters = $("#characters");
       
     };
@@ -59,24 +60,28 @@ $(document).ready(function () {
 
 
 
-function InitClickHandler() {
+function InitClickHandler(first) {
     if (CharacterSelected==true && EnemySelected==true) {
         AppendChar("#defender");
         
        
     }
     else if (CharacterSelected==true) {
-       AppendChar("#enemies");
+       AppendChar("#enemiesRow");
        
        EnemySelected=true;
     
     }
-    else {
+    else if(first) {
         AppendChar("#userCharacter");
+       
         
+    }
+    else {
         CharacterSelected=true;
-        var enemies = $("#characters");
-        enemies.appendTo("#enemies");
+        var tempEnemies = $("#characters");
+        console.log("Temp Enemies: " + tempEnemies.html());
+        $("#enemiesRow").appendTo(tempEnemies.html());
        
     }
    
@@ -93,37 +98,46 @@ function DiplayStats() {
     
 }
 
-function AppendChar(sec) {
+function AppendChar() {
    
     $("#charCol1").on("click", function () {
-        $(this).appendTo(sec);
-        InitClickHandler();
-        UserCharacter = Obi;
-        CheckUserSelected("#charCol1");
-        DiplayStats();
+        console.log($(this));
+        // HandleAppend(sec);
     
     });
     $("#charCol2").on("click", function () {
-        $(this).appendTo(sec);
-        InitClickHandler();
-        UserCharacter = Luke;
-        CheckUserSelected("#charCol2");
-        DiplayStats();
+        console.log($(this));
+        // $(this).appendTo(sec);
+        // InitClickHandler();
+        // UserCharacter = Luke;
+        // CheckUserSelected("#charCol2");
+        // DiplayStats();
     });
     $("#charCol3").on("click", function () {
-        $(this).appendTo(sec);
-        InitClickHandler();
-        UserCharacter = DarthSidious;
-        CheckUserSelected("#charCol3");
-        DiplayStats();
+        console.log($(this));
+        // $(this).appendTo(sec);
+        // InitClickHandler();
+        // UserCharacter = DarthSidious;
+        // CheckUserSelected("#charCol3");
+        // DiplayStats();
     });
     $("#charCol4").on("click", function () {
-        $(this).appendTo(sec);
-        InitClickHandler();
-        UserCharacter = DarthMaul;
-        CheckUserSelected("#charCol4");
-        DiplayStats();
+        console.log($(this));
+        // $(this).appendTo(sec);
+        // InitClickHandler();
+        // UserCharacter = DarthMaul;
+        // CheckUserSelected("#charCol4");
+        // DiplayStats();
     });
+}
+
+function HandleAppend(sec) {
+    
+    $(this).appendTo(sec);
+    InitClickHandler();
+    UserCharacter = Obi;
+    CheckUserSelected("#charCol1");
+    DiplayStats();
 }
 
 function CheckUserSelected(charCol) {
