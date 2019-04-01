@@ -44,7 +44,7 @@ var enemyCol4;
 var enemiesRow;
 var characters;
 var UserCharacter;
-
+var defender;
 var CharacterSelected = false;
 var EnemySelected = false;
 var first = true;
@@ -55,45 +55,30 @@ $(document).ready(function () {
     InitVariables();
     InitClickHandler();
 
-    function InitVariables() {
-        char1 = $("#char1");
-        char2 = $("#char2");
-        char3 = $("#char2");
-        char4 = $("#char2");
-        charCol1 = $("#charCol1");
-        charCol2 = $("#charCol2");
-        charCol3 = $("#charCol3");
-        charCol4 = $("#charCol4");
-        enemyCol1 = $("#enemyCol1");
-        enemyCol2 = $("#enemyCol2");
-        enemyCol3 = $("#enemyCol3");
-        enemyCol4 = $("#enemyCol4");
-        enemiesRow = $("#enemiesRow");
-        characters = $("#characters");
-        UserCharacter = $("#userCharacter");
-
-    };
+    
 });
 
 
 
 function InitClickHandler() {
     $("#charCol1").on("click", function () {
-        HandleAppend(charCol1);
+      
+        HandleAppend($(this));
+        console.log(stage);
 
 
     });
     $("#charCol2").on("click", function () {
         HandleAppend(charCol2);
-
+        console.log(stage);
     });
     $("#charCol3").on("click", function () {
         HandleAppend(charCol3);
-
+        console.log(stage);
     });
     $("#charCol4").on("click", function () {
         HandleAppend(charCol4);
-
+        console.log(stage);
     });
 
 }
@@ -111,23 +96,23 @@ function DiplayStats() {
 function AppendChar() {
 
     $("#charCol1").on("click", function () {
-        console.log($(this));
-        HandleAppend(charCol1);
+       console.log(stage);
+        HandleAppend("#charCol1");
 
     });
     $("#charCol2").on("click", function () {
-        console.log($(this));
-        HandleAppend(charCol2);
+        console.log(stage);
+        HandleAppend("#charCol2");
         
     });
     $("#charCol3").on("click", function () {
-        console.log($(this));
-        HandleAppend(charCol3);
+        console.log(stage);
+        HandleAppend("#charCol3");
         
     });
     $("#charCol4").on("click", function () {
-        console.log($(this));
-        HandleAppend(charCol3);
+        console.log(stage);
+        HandleAppend("#charCol3");
     });
 }
 
@@ -135,13 +120,27 @@ function HandleAppend(charCard) {
     if(stage==0) {
         User = Obi;
         User.selected = true;
-        console.log("Stage: " + stage);
-        console.log("CharCard: " + charCard.html());
+  
         $(charCard).detach();
-        $("#userCharacter").append("<div class=\"col-md-3\">"+ charCard.html() + "</div>");
+        $("#userCharacter").append("<div class=\"user col-md-3\">"+ charCard.html() + "</div>");
         $(characters).detach();
         $(enemiesRow).append("<div class=\"col-md-12\"/>"+ characters.html() + "</div>");
         stage++;
+     
+        InitClickHandler();
+        
+    }
+    else if(stage==1) {
+        
+        var tempCard = charCard.html();
+       
+        $(defender).append("<div class=\"col-md-3\">" + tempCard + "</div>");
+        $(this).detach();
+        InitClickHandler();
+        stage++;
+    }
+    else {
+
     }
 
 }
@@ -170,6 +169,26 @@ function DisableClick(charPicked) {
     }
 
 }
+
+function InitVariables() {
+    char1 = $("#char1");
+    char2 = $("#char2");
+    char3 = $("#char2");
+    char4 = $("#char2");
+    charCol1 = $("#charCol1");
+    charCol2 = $("#charCol2");
+    charCol3 = $("#charCol3");
+    charCol4 = $("#charCol4");
+    enemyCol1 = $("#enemyCol1");
+    enemyCol2 = $("#enemyCol2");
+    enemyCol3 = $("#enemyCol3");
+    enemyCol4 = $("#enemyCol4");
+    enemiesRow = $("#enemiesRow");
+    characters = $("#characters");
+    UserCharacter = $("#userCharacter");
+    defender = $("#defender");
+
+};
 
 // BACKUP CODE FOR INITIALIZE CLICK HANDLER
 // if (CharacterSelected==true && EnemySelected==true) {
