@@ -109,28 +109,7 @@ function DiplayStatsConsole() {
 
 }
 
-// function AppendChar() {
 
-//     $("#charCol1").on("click", function () {
-//        console.log(stage);
-//         HandleAppend("#charCol1");
-
-//     });
-//     $("#charCol2").on("click", function () {
-//         console.log(stage);
-//         HandleAppend("#charCol2");
-
-//     });
-//     $("#charCol3").on("click", function () {
-//         console.log(stage);
-//         HandleAppend("#charCol3");
-
-//     });
-//     $("#charCol4").on("click", function () {
-//         console.log(stage);
-//         HandleAppend("#charCol3");
-//     });
-// }
 
 function HandleAppend(charCard, objChar) {
     if (stage == 0) {
@@ -152,20 +131,11 @@ function HandleAppend(charCard, objChar) {
     else if (stage == 1) {
         AssignEnemy(objChar);
         $(defender).append("<div class=\"col-md-12\"/>" + charCard.html() + "</div>");
-        // var strUser = JSON.stringify(User);
-        // var strEnemy = JSON.stringify(Enemy);
-        // console.log("User: " + strUser);
-        // console.log("Enemy: " + strEnemy);
         stage++;
         DisplayStats();
-
-
-
-
         InitClickHandler();
     }
     else if (stage == 2) {
-
         $(fight).append("<div class=\"col-md-12\"/>" + charCard.html() + "</div>");
         InitClickHandler();
         stage++;
@@ -240,33 +210,6 @@ function AssignEnemy(objChar) {
     }
 }
 
-
-
-// function CheckUserSelected(charCol) {
-//     if (UserCharacter.selected == false) {
-
-//         UserCharacter.selected = true;
-//         DisableClick(charCol);
-//     }
-// }
-
-// function DisableClick(charPicked) {
-//     var tempCharPicked = charPicked;
-//     if (tempCharPicked == "#charCol1") {
-//         $("#charCol1").unbind("click");
-//     }
-//     if (tempCharPicked == "#charCol2") {
-//         $("#charCol2").unbind("click");
-//     }
-//     if (tempCharPicked == "#charCol3") {
-//         $("#charCol3").unbind("click");
-//     }
-//     if (tempCharPicked == "#charCol4") {
-//         $("#charCol4").unbind("click");
-//     }
-
-// }
-
 function InitVariables() {
     char1 = $("#char1");
     char2 = $("#char2");
@@ -288,34 +231,3 @@ function InitVariables() {
 
 };
 
-// BACKUP CODE FOR INITIALIZE CLICK HANDLER
-// if (CharacterSelected==true && EnemySelected==true) {
-//     AppendChar("#defender");
-
-
-// }
-// else if (CharacterSelected==true) {
-//    AppendChar("#enemiesRow");
-
-//    EnemySelected=true;
-
-// }
-// else if(first) {
-//     AppendChar("#userCharacter");
-
-
-// }
-// else {
-//     CharacterSelected=true;
-//     var tempEnemies = $("#characters");
-//     console.log("Temp Enemies: " + tempEnemies.html());
-//     $("#enemiesRow").appendTo(tempEnemies.html());
-
-// }
-
-// BACKUP FOR APPEND
-// $(this).appendTo(sec);
-        // InitClickHandler();
-        // UserCharacter = DarthMaul;
-        // CheckUserSelected("#charCol4");
-        // DiplayStats();
