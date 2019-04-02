@@ -55,7 +55,7 @@ var defender;
 var CharacterSelected = false;
 var EnemySelected = false;
 var first = true;
-
+var Enemy;
 var stage=0;
 $(document).ready(function () {
 
@@ -70,24 +70,24 @@ $(document).ready(function () {
 function InitClickHandler() {
     $("#charCol1").on("click", function () {
         $(this).detach();
-        HandleAppend($(this));
+        HandleAppend(charCol1, "obi");
         console.log(stage);
 
 
     });
     $("#charCol2").on("click", function () {
         $(this).detach();
-        HandleAppend(charCol2);
+        HandleAppend(charCol2, "luke");
         console.log(stage);
     });
     $("#charCol3").on("click", function () {
         $(this).detach();
-        HandleAppend(charCol3);
+        HandleAppend(charCol3, "sid");
         console.log(stage);
     });
     $("#charCol4").on("click", function () {
         $(this).detach();
-        HandleAppend(charCol4);
+        HandleAppend(charCol4, "maul");
         console.log(stage);
     });
 
@@ -103,47 +103,52 @@ function DiplayStats() {
 
 }
 
-function AppendChar() {
+// function AppendChar() {
 
-    $("#charCol1").on("click", function () {
-       console.log(stage);
-        HandleAppend("#charCol1");
+//     $("#charCol1").on("click", function () {
+//        console.log(stage);
+//         HandleAppend("#charCol1");
 
-    });
-    $("#charCol2").on("click", function () {
-        console.log(stage);
-        HandleAppend("#charCol2");
+//     });
+//     $("#charCol2").on("click", function () {
+//         console.log(stage);
+//         HandleAppend("#charCol2");
         
-    });
-    $("#charCol3").on("click", function () {
-        console.log(stage);
-        HandleAppend("#charCol3");
+//     });
+//     $("#charCol3").on("click", function () {
+//         console.log(stage);
+//         HandleAppend("#charCol3");
         
-    });
-    $("#charCol4").on("click", function () {
-        console.log(stage);
-        HandleAppend("#charCol3");
-    });
-}
+//     });
+//     $("#charCol4").on("click", function () {
+//         console.log(stage);
+//         HandleAppend("#charCol3");
+//     });
+// }
 
-function HandleAppend(charCard) {
+function HandleAppend(charCard, objChar) {
     if(stage==0) {
-        User = Obi;
+        AssignUser(objChar);
+       
         User.selected = true;
-  
+        User.stage = 1;
         $(charCard).detach();
         $("#userCharacter").append("<div class=\"user col-md-3\">"+ charCard.html() + "</div>");
         $(characters).detach();
         $(enemiesRow).append("<div class=\"col-md-12\"/>"+ characters.html() + "</div>");
         stage++;
-     
+        console.log(User);
         InitClickHandler();
         
     }
     else if(stage==1) {
+        AssignEnemy(objChar);
         $(defender).append("<div class=\"col-md-12\"/>"+ charCard.html() + "</div>");
-        InitClickHandler();
+        
+        console.log("User: " + User);
+        console.log("Enemy: " + Enemy);
         stage++;
+        InitClickHandler();
     }
     else if(stage==2) {
      
@@ -157,30 +162,84 @@ function HandleAppend(charCard) {
 
 }
 
-function CheckUserSelected(charCol) {
-    if (UserCharacter.selected == false) {
-
-        UserCharacter.selected = true;
-        DisableClick(charCol);
+function AssignUser(objChar) {
+    switch (objChar) {
+        case "obi":
+            {
+                User = Obi;
+                break;
+            }
+        case "luke":
+            {
+                User = Luke;
+                break;
+            }
+        case "sid":
+            {
+                User = DarthSidious;
+                break;
+            }
+        case "maul":
+            {
+                User = DarthMaul;
+                break;
+            }
+       
     }
 }
 
-function DisableClick(charPicked) {
-    var tempCharPicked = charPicked;
-    if (tempCharPicked == "#charCol1") {
-        $("#charCol1").unbind("click");
+function AssignEnemy(objChar) {
+    switch (objChar) {
+        case "obi":
+            {
+                Enemy = Obi;
+                break;
+            }
+        case "luke":
+            {
+               Enemy = Luke;
+                break;
+            }
+        case "sid":
+            {
+                Enemy = DarthSidious;
+                break;
+            }
+        case "maul":
+            {
+                Enemy = DarthMaul;
+                break;
+            }
+       
     }
-    if (tempCharPicked == "#charCol2") {
-        $("#charCol2").unbind("click");
-    }
-    if (tempCharPicked == "#charCol3") {
-        $("#charCol3").unbind("click");
-    }
-    if (tempCharPicked == "#charCol4") {
-        $("#charCol4").unbind("click");
-    }
-
 }
+
+
+
+// function CheckUserSelected(charCol) {
+//     if (UserCharacter.selected == false) {
+
+//         UserCharacter.selected = true;
+//         DisableClick(charCol);
+//     }
+// }
+
+// function DisableClick(charPicked) {
+//     var tempCharPicked = charPicked;
+//     if (tempCharPicked == "#charCol1") {
+//         $("#charCol1").unbind("click");
+//     }
+//     if (tempCharPicked == "#charCol2") {
+//         $("#charCol2").unbind("click");
+//     }
+//     if (tempCharPicked == "#charCol3") {
+//         $("#charCol3").unbind("click");
+//     }
+//     if (tempCharPicked == "#charCol4") {
+//         $("#charCol4").unbind("click");
+//     }
+
+// }
 
 function InitVariables() {
     char1 = $("#char1");
