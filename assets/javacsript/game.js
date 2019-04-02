@@ -5,13 +5,19 @@ var User = {
     selected: false,
     stage: 0
 };
-
+var Enemy = {
+    name:"",
+    HP:0,
+    AttackPower:0,
+    selected:false,
+    stage:0
+}
 var Luke = {
     name: "Luke",
     HP: 28,
     AttackPower: 6,
     selected: false,
-    stage:0
+    stage: 0
 
 };
 var Obi = {
@@ -19,21 +25,21 @@ var Obi = {
     HP: 26,
     AttackPower: 8,
     selected: false,
-    stage:0
+    stage: 0
 };
 var DarthSidious = {
     name: "Darth Sidious",
     HP: 18,
     AttackPower: 16,
     selected: false,
-    stage:0
+    stage: 0
 };
 var DarthMaul = {
     name: "Darth Maul",
     HP: 2,
     AttackPower: 60,
     selected: false,
-    stage:0
+    stage: 0
 };
 
 var char1 = $("#char1");
@@ -55,14 +61,14 @@ var defender;
 var CharacterSelected = false;
 var EnemySelected = false;
 var first = true;
-var Enemy;
-var stage=0;
+
+var stage = 0;
 $(document).ready(function () {
 
     InitVariables();
     InitClickHandler();
 
-    
+
 });
 
 
@@ -94,7 +100,7 @@ function InitClickHandler() {
 }
 
 
-function DiplayStats() {
+function DiplayStatsConsole() {
     console.log("Character: " + CharacterSelected);
     console.log("EnemySelected: " + EnemySelected);
     console.log("User Character: " + UserCharacter.name);
@@ -113,12 +119,12 @@ function DiplayStats() {
 //     $("#charCol2").on("click", function () {
 //         console.log(stage);
 //         HandleAppend("#charCol2");
-        
+
 //     });
 //     $("#charCol3").on("click", function () {
 //         console.log(stage);
 //         HandleAppend("#charCol3");
-        
+
 //     });
 //     $("#charCol4").on("click", function () {
 //         console.log(stage);
@@ -127,32 +133,40 @@ function DiplayStats() {
 // }
 
 function HandleAppend(charCard, objChar) {
-    if(stage==0) {
+    if (stage == 0) {
         AssignUser(objChar);
-       
+
         User.selected = true;
         User.stage = 1;
         $(charCard).detach();
-        $("#userCharacter").append("<div class=\"user col-md-3\">"+ charCard.html() + "</div>");
+        $("#userCharacter").append("<div class=\"user col-md-3\">" + charCard.html() + "</div>");
         $(characters).detach();
-        $(enemiesRow).append("<div class=\"col-md-12\"/>"+ characters.html() + "</div>");
+        $(enemiesRow).append("<div class=\"col-md-12\"/>" + characters.html() + "</div>");
         stage++;
-        console.log(User);
+
+        DisplayStats();
+
         InitClickHandler();
-        
+
     }
-    else if(stage==1) {
+    else if (stage == 1) {
         AssignEnemy(objChar);
-        $(defender).append("<div class=\"col-md-12\"/>"+ charCard.html() + "</div>");
-        
-        console.log("User: " + User);
-        console.log("Enemy: " + Enemy);
+        $(defender).append("<div class=\"col-md-12\"/>" + charCard.html() + "</div>");
+        // var strUser = JSON.stringify(User);
+        // var strEnemy = JSON.stringify(Enemy);
+        // console.log("User: " + strUser);
+        // console.log("Enemy: " + strEnemy);
         stage++;
+        DisplayStats();
+
+
+
+
         InitClickHandler();
     }
-    else if(stage==2) {
-     
-        $(fight).append("<div class=\"col-md-12\"/>"+ charCard.html() + "</div>");
+    else if (stage == 2) {
+
+        $(fight).append("<div class=\"col-md-12\"/>" + charCard.html() + "</div>");
         InitClickHandler();
         stage++;
     }
@@ -161,6 +175,18 @@ function HandleAppend(charCard, objChar) {
     }
 
 }
+
+function DisplayStats() {
+    $("#divUserName").append("<span>" + User.name.toString() + "</span>");
+    console.log(User.name);
+    $("#divUserAtt").text(User.AttackPower);
+    $("#divUserHP").text(User.HP);
+
+    $("#divEnemyName").text(Enemy.name);
+    $("#divEnemyAtt").text(Enemy.AttackPower);
+    $("#divEnemyHP").text(Enemy.HP);
+}
+
 
 function AssignUser(objChar) {
     switch (objChar) {
@@ -184,7 +210,7 @@ function AssignUser(objChar) {
                 User = DarthMaul;
                 break;
             }
-       
+
     }
 }
 
@@ -197,7 +223,7 @@ function AssignEnemy(objChar) {
             }
         case "luke":
             {
-               Enemy = Luke;
+                Enemy = Luke;
                 break;
             }
         case "sid":
@@ -210,7 +236,7 @@ function AssignEnemy(objChar) {
                 Enemy = DarthMaul;
                 break;
             }
-       
+
     }
 }
 

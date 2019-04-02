@@ -26,3 +26,8 @@ body {
 .user {
     background:#eee;
 }
+.fightStats {
+    background: #eee;
+    border:1px solid black;
+    border-radius:4px;
+}
