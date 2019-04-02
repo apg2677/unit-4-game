@@ -2,7 +2,7 @@
 body {
     background: #ccc;
 }
-#enemyCol1 {
+/* #enemyCol1 {
     display:none;
     
 }
@@ -18,7 +18,7 @@ body {
 }
 * {
     
-}
+} */
 .col-md-3 {
     border:1px solid red;
 }

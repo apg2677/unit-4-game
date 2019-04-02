@@ -61,13 +61,19 @@ var defender;
 var CharacterSelected = false;
 var EnemySelected = false;
 var first = true;
+var baseAttack;
+var hits=0;
+var defender2;
 
 var stage = 0;
 $(document).ready(function () {
 
     InitVariables();
     InitClickHandler();
-
+    $("#btnAttack").click(function() {
+        Attack();
+        DisplayStats();
+    });
 
 });
 
@@ -134,20 +140,24 @@ function HandleAppend(charCard, objChar) {
         stage++;
         DisplayStats();
         InitClickHandler();
+        Enemy.stage = 1;
     }
     else if (stage == 2) {
-        $(fight).append("<div class=\"col-md-12\"/>" + charCard.html() + "</div>");
+       $("#btnAttack").after("<div id=\"defender\" class=\"row\"></div>");
+       defender = $("#defender"); 
+       $(defender).append("<div class=\"col-md-12\"/>" + charCard.html() + "</div>");
         InitClickHandler();
         stage++;
+        alert("stage 2");
     }
     else {
-        InitClickHandler();
+        // InitClickHandler();
     }
 
 }
 
 function DisplayStats() {
-    $("#divUserName").append("<span>" + User.name.toString() + "</span>");
+    $("#divUserName").text(User.name);
     console.log(User.name);
     $("#divUserAtt").text(User.AttackPower);
     $("#divUserHP").text(User.HP);
@@ -231,3 +241,18 @@ function InitVariables() {
 
 };
 
+function Attack() {
+    hits++;
+    baseAttack = User.AttackPower;
+    Enemy.HP -= User.AttackPower;
+    User.HP -= Enemy.AttackPower;
+    User.AttackPower += baseAttack *  hits;
+    if(Enemy.HP < 0) {
+        Enemy.stage = 2;
+        stage = 1;
+        alert("enemy Dead!");
+     
+        $(defender).detach();
+        InitClickHandler();
+    }
+}
