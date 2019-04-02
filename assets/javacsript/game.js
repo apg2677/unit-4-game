@@ -62,21 +62,24 @@ $(document).ready(function () {
 
 function InitClickHandler() {
     $("#charCol1").on("click", function () {
-      
+        $(this).detach();
         HandleAppend($(this));
         console.log(stage);
 
 
     });
     $("#charCol2").on("click", function () {
+        $(this).detach();
         HandleAppend(charCol2);
         console.log(stage);
     });
     $("#charCol3").on("click", function () {
+        $(this).detach();
         HandleAppend(charCol3);
         console.log(stage);
     });
     $("#charCol4").on("click", function () {
+        $(this).detach();
         HandleAppend(charCol4);
         console.log(stage);
     });
@@ -134,8 +137,8 @@ function HandleAppend(charCard) {
         
         var tempCard = charCard.html();
        
-        $(defender).append("<div class=\"col-md-3\">" + tempCard + "</div>");
-        $(this).detach();
+        // $(defender).append("<div class=\"col-md-3\">" + tempCard + "</div>");
+        $(charCard).detach().appendTo(defender);
         InitClickHandler();
         stage++;
     }
