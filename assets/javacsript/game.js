@@ -15,29 +15,29 @@ var Enemy = {
 var Luke = {
     name: "Luke",
     HP: 28,
-    AttackPower: 6,
+    AttackPower: 1,
     selected: false,
     stage: 0
 
 };
 var Obi = {
     name: "Obi-wan",
-    HP: 26,
-    AttackPower: 8,
+    HP: 52,
+    AttackPower: 2,
     selected: false,
     stage: 0
 };
 var DarthSidious = {
     name: "Darth Sidious",
-    HP: 18,
-    AttackPower: 16,
+    HP: 80,
+    AttackPower: 3,
     selected: false,
     stage: 0
 };
 var DarthMaul = {
     name: "Darth Maul",
-    HP: 2,
-    AttackPower: 60,
+    HP: 180,
+    AttackPower: 4,
     selected: false,
     stage: 0
 };
@@ -143,12 +143,12 @@ function HandleAppend(charCard, objChar) {
         Enemy.stage = 1;
     }
     else if (stage == 2) {
-       $("#btnAttack").after("<div id=\"defender\" class=\"row\"></div>");
+       $("#btnAttack").after("<div id=\"defender\" class=\"row\">Defender:</div>");
        defender = $("#defender"); 
        $(defender).append("<div class=\"col-md-12\"/>" + charCard.html() + "</div>");
         InitClickHandler();
         stage++;
-        alert("stage 2");
+    
     }
     else {
         // InitClickHandler();
@@ -246,7 +246,7 @@ function Attack() {
     baseAttack = User.AttackPower;
     Enemy.HP -= User.AttackPower;
     User.HP -= Enemy.AttackPower;
-    User.AttackPower += baseAttack *  hits;
+    User.AttackPower += Math.floor(baseAttack *  hits * 0.05);
     if(Enemy.HP < 0) {
         Enemy.stage = 2;
         stage = 1;
@@ -254,5 +254,8 @@ function Attack() {
      
         $(defender).detach();
         InitClickHandler();
+    }
+    if(User.HP < 0) {
+        alert("You Lose!");
     }
 }
