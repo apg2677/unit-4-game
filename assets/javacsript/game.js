@@ -2,33 +2,40 @@ var User = {
     name: "",
     HP: 0,
     AttackPower: 0,
-    selected: false
+    selected: false,
+    stage: 0
 };
 
 var Luke = {
     name: "Luke",
     HP: 28,
     AttackPower: 6,
-    selected: false
+    selected: false,
+    stage:0
+
 };
 var Obi = {
     name: "Obi-wan",
     HP: 26,
     AttackPower: 8,
-    selected: false
+    selected: false,
+    stage:0
 };
 var DarthSidious = {
     name: "Darth Sidious",
     HP: 18,
     AttackPower: 16,
-    selected: false
+    selected: false,
+    stage:0
 };
 var DarthMaul = {
     name: "Darth Maul",
     HP: 2,
     AttackPower: 60,
-    selected: false
+    selected: false,
+    stage:0
 };
+
 var char1 = $("#char1");
 var char2;
 var char3;
@@ -134,16 +141,18 @@ function HandleAppend(charCard) {
         
     }
     else if(stage==1) {
-        
-        var tempCard = charCard.html();
-       
-        // $(defender).append("<div class=\"col-md-3\">" + tempCard + "</div>");
-        $(charCard).detach().appendTo(defender);
+        $(defender).append("<div class=\"col-md-12\"/>"+ charCard.html() + "</div>");
+        InitClickHandler();
+        stage++;
+    }
+    else if(stage==2) {
+     
+        $(fight).append("<div class=\"col-md-12\"/>"+ charCard.html() + "</div>");
         InitClickHandler();
         stage++;
     }
     else {
-
+        InitClickHandler();
     }
 
 }
@@ -190,6 +199,7 @@ function InitVariables() {
     characters = $("#characters");
     UserCharacter = $("#userCharacter");
     defender = $("#defender");
+    fight = $("#fight");
 
 };
 
