@@ -14,30 +14,30 @@ var Enemy = {
 }
 var Luke = {
     name: "Luke",
-    HP: 28,
-    AttackPower: 1,
+    HP: 280,
+    AttackPower: 3,
     selected: false,
     stage: 0
 
 };
 var Obi = {
     name: "Obi-wan",
-    HP: 52,
-    AttackPower: 2,
+    HP: 152,
+    AttackPower: 4,
     selected: false,
     stage: 0
 };
 var DarthSidious = {
     name: "Darth Sidious",
     HP: 80,
-    AttackPower: 3,
+    AttackPower: 6,
     selected: false,
     stage: 0
 };
 var DarthMaul = {
     name: "Darth Maul",
-    HP: 180,
-    AttackPower: 4,
+    HP: 30,
+    AttackPower: 10,
     selected: false,
     stage: 0
 };
@@ -246,7 +246,7 @@ function Attack() {
     baseAttack = User.AttackPower;
     Enemy.HP -= User.AttackPower;
     User.HP -= Enemy.AttackPower;
-    User.AttackPower += Math.floor(baseAttack *  hits * 0.05);
+    User.AttackPower += Math.floor(baseAttack *  hits * 0.01);
     if(Enemy.HP < 0) {
         Enemy.stage = 2;
         stage = 1;
